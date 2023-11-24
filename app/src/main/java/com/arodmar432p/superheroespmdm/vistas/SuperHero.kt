@@ -11,11 +11,15 @@ import androidx.compose.ui.unit.dp
 import com.arodmar432p.superheroespmdm.Superhero
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -26,12 +30,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import com.arodmar432p.superheroespmdm.R
-import androidx.compose.material3.*
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.itemsIndexed
+
 
 
 fun getSuperheroes() = listOf(
@@ -98,14 +97,14 @@ fun ItemHero(superhero: Superhero, onItemSelected: (Superhero) -> Unit) {
     }
 }
 
-/*
+
 @Composable
 @Preview(showBackground = true)
 fun SuperHeroGridView() {
     val context = LocalContext.current
     val superheroes = getSuperheroes()
-    LazyVerticalGrid<Any>(
-        cells = GridCells.Adaptive(minSize = 130.dp),
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
         modifier = Modifier
             .fillMaxWidth()
@@ -118,7 +117,7 @@ fun SuperHeroGridView() {
         }
     }
 }
-*/
+
 
 @Preview(showBackground = true)
 @Composable
