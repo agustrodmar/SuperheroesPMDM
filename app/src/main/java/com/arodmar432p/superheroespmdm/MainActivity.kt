@@ -13,6 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.arodmar432p.superheroespmdm.ui.theme.SuperheroesPMDMTheme
+import com.arodmar432p.superheroespmdm.vistas.ItemHero
+import com.arodmar432p.superheroespmdm.vistas.PreviewItemHero
+import com.arodmar432p.superheroespmdm.vistas.SuperHeroView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,41 +27,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    SuperHeroView()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SuperheroesPMDMTheme {
-        Greeting("Android")
-    }
-}
-
-@Composable
-@Preview
-fun SimpleRecyclerView() {
-    val myList = listOf("Marta", "Pepe", "Manolo", "Jaime")
-    LazyColumn {
-        item { Text(text = "Header") }
-        items(3) {
-            Text(text = "Este es el item $it")
-        }
-        items(myList) {
-            Text(text = "Hola me llamo $it")
-        }
-        item { Text(text = "Footer") }
-    }
-}
